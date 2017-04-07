@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Grokit</title>
-    <link>https://www.example.com/homepage/index.xml</link>
+    <link>https://grok-it.github.io/index.xml</link>
     <description>Recent content on Grokit</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 07 Apr 2017 14:37:39 +0300</lastBuildDate>
-    <atom:link href="https://www.example.com/homepage/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://grok-it.github.io/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Resiliant services communication</title>
-      <link>https://www.example.com/homepage/post/rest-msg/service-communication/</link>
+      <link>https://grok-it.github.io/post/rest-msg/service-communication/</link>
       <pubDate>Fri, 07 Apr 2017 14:37:39 +0300</pubDate>
       
-      <guid>https://www.example.com/homepage/post/rest-msg/service-communication/</guid>
+      <guid>https://grok-it.github.io/post/rest-msg/service-communication/</guid>
       <description>&lt;p&gt;&lt;/p&gt;
 
 &lt;h2 id=&#34;imperfection-of-the-world&#34;&gt;Imperfection of the world&lt;/h2&gt;
@@ -80,10 +80,10 @@ For example, user changes address at service A, and you need to transport this c
     
     <item>
       <title>Checking hugo capabilities</title>
-      <link>https://www.example.com/homepage/post/hugo-capabilities/</link>
+      <link>https://grok-it.github.io/post/hugo-capabilities/</link>
       <pubDate>Sun, 26 Mar 2017 16:11:58 +0530</pubDate>
       
-      <guid>https://www.example.com/homepage/post/hugo-capabilities/</guid>
+      <guid>https://grok-it.github.io/post/hugo-capabilities/</guid>
       <description>&lt;p&gt;
 Markdown-style highlight is good&lt;/p&gt;
 

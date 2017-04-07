@@ -2,47 +2,47 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://www.example.com/homepage/post/rest-msg/service-communication/</loc>
+    <loc>https://grok-it.github.io/post/rest-msg/service-communication/</loc>
     <lastmod>2017-04-07T14:37:39+03:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.example.com/homepage/post/hugo-capabilities/</loc>
+    <loc>https://grok-it.github.io/post/hugo-capabilities/</loc>
     <lastmod>2017-03-26T16:11:58+05:30</lastmod>
   </url>
   
   <url>
-    <loc>https://www.example.com/homepage/tags/demo/</loc>
+    <loc>https://grok-it.github.io/tags/demo/</loc>
     <lastmod>2017-03-26T16:11:58+05:30</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://www.example.com/homepage/</loc>
+    <loc>https://grok-it.github.io/</loc>
     <lastmod>2017-04-07T14:37:39+03:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://www.example.com/homepage/tags/integration/</loc>
+    <loc>https://grok-it.github.io/tags/integration/</loc>
     <lastmod>2017-04-07T14:37:39+03:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://www.example.com/homepage/tags/microservices/</loc>
+    <loc>https://grok-it.github.io/tags/microservices/</loc>
     <lastmod>2017-04-07T14:37:39+03:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://www.example.com/homepage/post/</loc>
+    <loc>https://grok-it.github.io/post/</loc>
     <lastmod>2017-04-07T14:37:39+03:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://www.example.com/homepage/tags/</loc>
+    <loc>https://grok-it.github.io/tags/</loc>
     <priority>0</priority>
   </url>
   
