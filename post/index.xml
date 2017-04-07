@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on Grokit</title>
+    <title>Posts on GrokIT</title>
     <link>https://grok-it.github.io/post/index.xml</link>
-    <description>Recent content in Posts on Grokit</description>
+    <description>Recent content in Posts on GrokIT</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 07 Apr 2017 14:37:39 +0300</lastBuildDate>
