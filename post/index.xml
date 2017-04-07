@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Grokit</title>
+    <link>https://www.example.com/homepage/post/index.xml</link>
+    <description>Recent content in Posts on Grokit</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 07 Apr 2017 14:37:39 +0300</lastBuildDate>
+    <atom:link href="https://www.example.com/homepage/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Resiliant services communication</title>
+      <link>https://www.example.com/homepage/post/rest-msg/service-communication/</link>
+      <pubDate>Fri, 07 Apr 2017 14:37:39 +0300</pubDate>
+      
+      <guid>https://www.example.com/homepage/post/rest-msg/service-communication/</guid>
+      <description>&lt;p&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;imperfection-of-the-world&#34;&gt;Imperfection of the world&lt;/h2&gt;
+
+&lt;p&gt;Microservices style of software architecture is getting more popular these days. Instead of one monolithic application you create number of services that communicate with each other.&lt;/p&gt;
+
+&lt;p&gt;If our world was perfect, all the services would respond instantly and without errors. But in the real world it&amp;rsquo;s very common when:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;service return an error&lt;/li&gt;
+&lt;li&gt;service respond too slow, causing timeout&lt;/li&gt;
+&lt;li&gt;network error doesn&amp;rsquo;t allow client receive successful response from service&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;We have to be prepared for such things if we want our system to be resilient and fault-tolerant.&lt;/p&gt;
+
+&lt;h2 id=&#34;synchronous-rest-service&#34;&gt;Synchronous REST service&lt;/h2&gt;
+
+&lt;p&gt;This would be the first and simplest approach.
+Client calls service and waits for response. Say, we are creating user account. What if we get timeout or some other unexpected error while calling the service? Was account created or not?&lt;/p&gt;
+
+&lt;p&gt;If we retry our call we can get a duplicate. Or service must have some checks to return error instead of creating duplicate and client have to deal with this error somehow. Things are getting quite complicated. Concept of Idempotency can help in this case .&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Idempotence&lt;/strong&gt; is the property of certain operations, that can be applied multiple times without changing the result beyond the initial application&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;img src=&#34;../rest-idempotent.gif&#34; alt=&#34;Idempotent REST&#34; title=&#34;Idempotent REST&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;We can build our service in such way, that instead of creating duplicate, it would &lt;strong&gt;return result of previously completed operation&lt;/strong&gt;.
+Client just need to continue calling service until it get successful response.&lt;/p&gt;
+
+&lt;h2 id=&#34;messaging-approach&#34;&gt;Messaging approach&lt;/h2&gt;
+
+&lt;p&gt;Synchronous REST approach have problem with the duration of operations. Connection must be open all the time while operation is running, wasting resources both on client and server. Furthermore, some operations can take minutes, hours or even longer. For such cases messaging is more appropriate solution.
+Instead of waiting for whole operation to complete, service puts incoming message to queue and immediately responds to client. Only when operation is completed, services notifies client of the result.&lt;/p&gt;
+
+&lt;h3 id=&#34;messaging-with-broker&#34;&gt;Messaging with broker&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&#34;../messaging.gif&#34; alt=&#34;messaging&#34; title=&#34;messaging&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Client and service communicate through broker-mediator, such as ActiveMQ or RabbitMQ.
+Client puts requests to one queue and subscribes for responses. Service takes requests from incoming queue and puts responses to another.
+Such system is fault tolerant, it&amp;rsquo;s easy to do load balancing, just subscribe another service instance to incoming requests.&lt;br /&gt;
+But broker is a weak spot, it&amp;rsquo;s reliability and performance are very important. Also, it&amp;rsquo;s hard to replace broker implementation.&lt;/p&gt;
+
+&lt;h3 id=&#34;messaging-with-callback&#34;&gt;Messaging with callback&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&#34;../callback.gif&#34; alt=&#34;callback&#34; title=&#34;callback&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Another option is to hide broker implementation inside our service, or to build some custom internal queue implementation.
+Client call the service and tell it the URL where to send results of operation.&lt;/p&gt;
+
+&lt;h2 id=&#34;feed-polling&#34;&gt;Feed polling&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&#34;../feed.gif&#34; alt=&#34;feed&#34; title=&#34;feed&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;For some cases you can try inverted approach. Instead of service A sending messages to service B, B can periodically ask A, if it has some new messages.
+For example, user changes address at service A, and you need to transport this change to service B. B periodically makes requests to A, asking, give me all the changes that have happened after time T. You don&amp;rsquo;t need any extra queues, list of users is already stored at service A with times of last modification. Changes won&amp;rsquo;t be delivered online, but it&amp;rsquo;s not always necessary.&lt;/p&gt;
+
+&lt;p&gt;Whatever approach your choose, always ask yourself, how your system will behave if something goes wrong.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Checking hugo capabilities</title>
+      <link>https://www.example.com/homepage/post/hugo-capabilities/</link>
+      <pubDate>Sun, 26 Mar 2017 16:11:58 +0530</pubDate>
+      
+      <guid>https://www.example.com/homepage/post/hugo-capabilities/</guid>
+      <description>&lt;p&gt;
+Markdown-style highlight is good&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-html&#34;&gt;&amp;lt;section id=&amp;quot;main&amp;quot;&amp;gt;
+  &amp;lt;div&amp;gt;
+    &amp;lt;h1 id=&amp;quot;title&amp;quot;&amp;gt;{{ .Title }}&amp;lt;/h1&amp;gt;
+    {{ range .Data.Pages }}
+      {{ .Render &amp;quot;summary&amp;quot;}}
+    {{ end }}
+  &amp;lt;/div&amp;gt;
+&amp;lt;/section&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;function test() {
+    var a = 2;
+    console.log(a+2);
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Shortcode highlight is unreadable
+&lt;div class=&#34;highlight&#34; style=&#34;background: #272822&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;section&lt;/span&gt; &lt;span style=&#34;color: #a6e22e&#34;&gt;id&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;main&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;&amp;gt;&lt;/span&gt;
+  &lt;span style=&#34;color: #f8f8f2&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;div&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span style=&#34;color: #f8f8f2&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;h1&lt;/span&gt; &lt;span style=&#34;color: #a6e22e&#34;&gt;id&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;title&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;&amp;gt;&lt;/span&gt;{{ .Title }}&lt;span style=&#34;color: #f8f8f2&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;h1&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;&amp;gt;&lt;/span&gt;
+    {{ range .Data.Pages }}
+      {{ .Render &amp;quot;summary&amp;quot;}}
+    {{ end }}
+  &lt;span style=&#34;color: #f8f8f2&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;div&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;span style=&#34;color: #f8f8f2&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;section&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #272822&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;background-color: #f0f0f0; padding: 0 5px 0 5px&#34;&gt;1 &lt;/span&gt;&lt;span style=&#34;color: #66d9ef&#34;&gt;var&lt;/span&gt; &lt;span style=&#34;color: #a6e22e&#34;&gt;a&lt;/span&gt; &lt;span style=&#34;color: #66d9ef&#34;&gt;string&lt;/span&gt;
+&lt;span style=&#34;background-color: #f0f0f0; padding: 0 5px 0 5px&#34;&gt;2 &lt;/span&gt;&lt;span style=&#34;background-color: #49483e&#34;&gt;&lt;span style=&#34;color: #66d9ef&#34;&gt;var&lt;/span&gt; &lt;span style=&#34;color: #a6e22e&#34;&gt;b&lt;/span&gt; &lt;span style=&#34;color: #66d9ef&#34;&gt;string&lt;/span&gt;
+&lt;/span&gt;&lt;span style=&#34;background-color: #f0f0f0; padding: 0 5px 0 5px&#34;&gt;3 &lt;/span&gt;&lt;span style=&#34;background-color: #49483e&#34;&gt;&lt;span style=&#34;color: #66d9ef&#34;&gt;var&lt;/span&gt; &lt;span style=&#34;color: #a6e22e&#34;&gt;c&lt;/span&gt; &lt;span style=&#34;color: #66d9ef&#34;&gt;string&lt;/span&gt;
+&lt;/span&gt;&lt;span style=&#34;background-color: #f0f0f0; padding: 0 5px 0 5px&#34;&gt;4 &lt;/span&gt;&lt;span style=&#34;color: #66d9ef&#34;&gt;var&lt;/span&gt; &lt;span style=&#34;color: #a6e22e&#34;&gt;d&lt;/span&gt; &lt;span style=&#34;color: #66d9ef&#34;&gt;string&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
