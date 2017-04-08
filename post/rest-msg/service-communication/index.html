@@ -108,8 +108,8 @@ Client just needs to continue calling service until it gets successful response.
 
 <h2 id="messaging-approach">Messaging approach</h2>
 
-<p>Synchronous REST approach has problem with the duration of operations. Connection must be open all the time while operation is running, wasting resources both on client and server. Furthermore, some operations can take minutes, hours or even longer. For such cases messaging is more appropriate solution.
-Instead of waiting for the whole operation to complete, service puts incoming message to queue and immediately responds to the client. Only when the operation is completed, services notifies client of the result.</p>
+<p>Synchronous REST services have problems with the duration of operations. Connection must be open all the time while operation is running, wasting resources both on client and server. Furthermore, some operations can take minutes, hours or even longer. For such cases messaging is more appropriate solution.
+Instead of waiting for the whole operation to complete, service puts incoming message to queue and immediately responds to the client. Only when the operation is completed, service notifies client of the result.</p>
 
 <h3 id="messaging-with-broker">Messaging with broker</h3>
 
@@ -197,13 +197,15 @@ For example, user changes address at service A, and you need to transport this c
         <h5 class="sidebar__title">Recent Posts</h5>
         <ul class="list-unstyled posts-recent">
             
-                <li  class="recent-article__thumbnail">
+				
+                <li>
 				<a href="https://grok-it.github.io/post/rest-msg/service-communication/">
 				<span class="recent-article__title">Resiliant services communication</span>
 				</a>
 				</li>
             
-                <li  class="recent-article__thumbnail">
+				
+                <li>
 				<a href="https://grok-it.github.io/post/hugo-capabilities/">
 				<span class="recent-article__title">Checking hugo capabilities</span>
 				</a>

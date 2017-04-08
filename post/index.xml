@@ -49,8 +49,8 @@ Client just needs to continue calling service until it gets successful response.
 
 &lt;h2 id=&#34;messaging-approach&#34;&gt;Messaging approach&lt;/h2&gt;
 
-&lt;p&gt;Synchronous REST approach has problem with the duration of operations. Connection must be open all the time while operation is running, wasting resources both on client and server. Furthermore, some operations can take minutes, hours or even longer. For such cases messaging is more appropriate solution.
-Instead of waiting for the whole operation to complete, service puts incoming message to queue and immediately responds to the client. Only when the operation is completed, services notifies client of the result.&lt;/p&gt;
+&lt;p&gt;Synchronous REST services have problems with the duration of operations. Connection must be open all the time while operation is running, wasting resources both on client and server. Furthermore, some operations can take minutes, hours or even longer. For such cases messaging is more appropriate solution.
+Instead of waiting for the whole operation to complete, service puts incoming message to queue and immediately responds to the client. Only when the operation is completed, service notifies client of the result.&lt;/p&gt;
 
 &lt;h3 id=&#34;messaging-with-broker&#34;&gt;Messaging with broker&lt;/h3&gt;
 

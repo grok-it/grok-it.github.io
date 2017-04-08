@@ -24,9 +24,11 @@ body {
 	margin-top: 2px;
 	margin-bottom: 2px;
 }
+/*
 .recent-article__title {
 	margin-left: 60px;
 }
+*/
 /*
  * START NAVIGATION
  */
@@ -83,8 +85,14 @@ body {
 .content-card {
     background-color: #ffffff;
     border: 1px solid #e9e9e9;
-    padding: 40px;
+	padding-top: 20px;
 }
+@media (min-width: 768px) {
+	.content-card {
+		padding: 40px;
+	}
+}
+
 .content-card p {
 	text-align: justify;
 }
